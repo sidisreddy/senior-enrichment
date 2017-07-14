@@ -13,7 +13,7 @@ router.post("/", function(req, res, next) {
   console.log("post, ", req.body);
 
     Student.create(req.body)
-    .then(channel => res.json(channel))
+    .then(student => res.json(student))
     .catch(next);
 
 });

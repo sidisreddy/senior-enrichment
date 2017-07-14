@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 // GET /api/campus/:campusId
 router.get('/:campusId', function (req, res, next) {
   Campus.findById(req.params.campusId)
-    .then(channel => res.json(channel))
+    .then(campus => res.json(campus))
     .catch(next);
 });
 
@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
 console.log("posting  " , req.body)
 
   Campus.create(req.body)
-    .then(channel => res.json(channel))
+    .then(campus => res.json(campus))
     .catch(next);
 
 

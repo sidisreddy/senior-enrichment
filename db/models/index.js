@@ -12,7 +12,7 @@ const Campus = require("./campus");
 
 Campus.hasMany(Student, {
   onDelete: 'cascade'
-  //hooks: true
+  hooks: true
 });
 
 
