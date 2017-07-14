@@ -21,20 +21,24 @@ router.get('/:campusId', function (req, res, next) {
 // POST /api/campus
 router.post('/', function (req, res, next) {
 
-console.log("posting  " ,req.body)
-  Campus.findOrCreate({
-    where: {
-      name: req.body.name,
-      image: req.body.image
-    }
-  })
-    .spread(campus => {
-      console.log("spread ", campus);
-    })
-    .then(message => {
-      res.json(message);
-    })
+console.log("posting  " , req.body)
+
+  Campus.create(req.body)
+    .then(channel => res.json(channel))
     .catch(next);
+  // Campus.findOrCreate({
+  //   where: {
+  //     name: req.body.name,
+  //     image: req.body.image
+  //   }
+  // })
+  //   .spread(campus => {
+  //     console.log("spread ", campus);
+  //   })
+  //   .then(message => {
+  //     res.json(message);
+  //   })
+  //   .catch(next);
 
 
 });
@@ -43,7 +47,21 @@ console.log("posting  " ,req.body)
 router.delete('/:campusId', function (req, res, next) {
   const id = req.params.campusId;
 
+console.log("delete ", id )
+
   Campus.destroy({ where: { id } })
     .then(() => res.status(204).end())
     .catch(next);
+});
+
+
+router.put("/:campusId", function(req, res, next) {
+  const campusId = req.params.campusId; 
+
+  console.log("put ", campusId)
+
+  Campus.findById(campusId).then(campus => campus.update(req.body))
+  .then((update2) => res.status(204).end())
+  .catch(next);
+
 });

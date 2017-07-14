@@ -12,27 +12,33 @@ router.get("/", function(req, res, next) {
 router.post("/", function(req, res, next) {
   console.log("post, ", req.body);
 
-  Student.findOrCreate({
-    where: {
-      name: req.body || "Vivek"
-    }
-  })
-    .spread(student => {
-      console.log("spread ", student);
-    })
-    .then(message => {
-      res.json(message);
-    })
+    Student.create(req.body)
+    .then(channel => res.json(channel))
     .catch(next);
+
+  // Student.findOrCreate({
+  //   where: {
+  //     name: req.body || "Vivek"
+  //   }
+  // })
+  //   .spread(student => {
+  //     console.log("spread ", student);
+  //   })
+  //   .then(message => {
+  //     res.json(message);
+  //   })
+  //   .catch(next);
 });
 
 // PUT /api/student
 router.put("/:studentId", function(req, res, next) {
-  const studentId = req.params.studentId;
+  const campusId = req.params.studentId; 
 
-  console.log("put ", studentId , " ", req.body )
+  console.log("put ", studentId, req.body)
 
-  Student.findById(studentId).then(student => student.update(req.body)).catch(next);
+  Student.findById(studentId).then(student => student.update(req.body))
+  .then(() => res.status(204).end())
+  .catch(next);
 
 });
 
@@ -40,7 +46,7 @@ router.put("/:studentId", function(req, res, next) {
 router.delete("/:studentId", function(req, res, next) {
   const id = req.params.studentId;
 
-  console.log("delete ", id )
+  //console.log("delete ", id )
 
   Student.destroy({ where: { id } })
     .then(() => res.status(204).end())

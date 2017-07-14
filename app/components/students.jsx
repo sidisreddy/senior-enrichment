@@ -1,29 +1,32 @@
 import CreateStudent from "./createStudent";
 import React, { Component } from "react";
-import { withRouter, NavLink } from "react-router-dom";
+import { withRouter, NavLink, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 function students(props) {
   const { students } = props;
 
-  console.log(students)
-
-  return(  <div>
+  return(  
+    <div>
+    <h2>List of students</h2>
     <ul>
       {students && students.map(student => {
           return (
             <li key={student.id}>
-              <NavLink to={`/student/${student.id}`}>
+              <Link to={`/student/${student.id}`}>
                 <span>
-                  # {student.name}
+                  {student.name}
                 </span>
-              </NavLink>
+              </Link>
             </li>
           );
         })}
     </ul>
+    <br/>
+    <br/>
     <CreateStudent />
-  </div>);
+    </div>
+  )
 
 }
 
