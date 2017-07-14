@@ -26,19 +26,7 @@ console.log("posting  " , req.body)
   Campus.create(req.body)
     .then(channel => res.json(channel))
     .catch(next);
-  // Campus.findOrCreate({
-  //   where: {
-  //     name: req.body.name,
-  //     image: req.body.image
-  //   }
-  // })
-  //   .spread(campus => {
-  //     console.log("spread ", campus);
-  //   })
-  //   .then(message => {
-  //     res.json(message);
-  //   })
-  //   .catch(next);
+
 
 
 });

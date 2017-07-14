@@ -9,7 +9,7 @@ function campuses(props) {
 
   return (
     <div>
-    <h2>List of campuses</h2>
+      <h2>List of campuses</h2>
       <ul>
         {campuses &&
           campuses.map(campus => {
@@ -24,8 +24,8 @@ function campuses(props) {
             );
           })}
       </ul>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <CreateCampus />
     </div>
   );

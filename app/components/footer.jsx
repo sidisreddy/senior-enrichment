@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import  {ApFooter, ApFooterStyle} from 'apeman-react-footer'
- 
+import React, { Component } from "react";
+import { ApFooter, ApFooterStyle } from "apeman-react-footer";
+
 export default class Footer extends Component {
-  render () {
+  render() {
     return (
       <div>
         <ApFooterStyle />
@@ -10,6 +10,6 @@ export default class Footer extends Component {
           <b> 2017 Sid Reddy </b>
         </ApFooter>
       </div>
-    )
+    );
   }
 }

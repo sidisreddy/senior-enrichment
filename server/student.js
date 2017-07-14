@@ -16,18 +16,6 @@ router.post("/", function(req, res, next) {
     .then(channel => res.json(channel))
     .catch(next);
 
-  // Student.findOrCreate({
-  //   where: {
-  //     name: req.body || "Vivek"
-  //   }
-  // })
-  //   .spread(student => {
-  //     console.log("spread ", student);
-  //   })
-  //   .then(message => {
-  //     res.json(message);
-  //   })
-  //   .catch(next);
 });
 
 // PUT /api/student
