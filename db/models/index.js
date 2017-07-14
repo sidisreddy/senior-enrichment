@@ -11,7 +11,7 @@ const Campus = require("./campus");
 //Campus.hasMany(Student);
 
 Campus.hasMany(Student, {
-  onDelete: 'cascade'
+  onDelete: 'cascade',
   hooks: true
 });
 
